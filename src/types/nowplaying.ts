@@ -2,7 +2,7 @@
 
 import type { Track } from './track.ts'
 
-type NowPlaying = {
+export type NowPlaying = {
     current_track: Track | null;
     is_playing: boolean;
     queue: Track[]

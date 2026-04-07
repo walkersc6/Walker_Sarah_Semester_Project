@@ -3,7 +3,7 @@
 // genre type
 import type { Artist } from './artist.ts'
 
-type Genre = {
+export type Genre = {
     genre_id: number,
     genre_name: string,
     genre_picture: URL,
