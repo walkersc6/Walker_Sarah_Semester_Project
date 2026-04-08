@@ -5,8 +5,8 @@ import type { Track } from './track.ts'
 export type Artist = {
     artist_id: number,
     artist_name: string,
-    artist_picture: URL,
+    artist_picture: string,
     artist_number_of_albums: number,
-    artist_tracklist: URL,
+    artist_tracklist: string,
     artist_top_tracks: Track[]
 }

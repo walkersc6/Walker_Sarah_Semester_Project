@@ -6,7 +6,7 @@ import type { Track } from './track.ts'
 export type Album = {
     album_id: number;
     album_title: string;
-    album_cover: URL;
+    album_cover: string;
     album_genre_id: number;
     album_duration: number;
     album_release_date: Date;

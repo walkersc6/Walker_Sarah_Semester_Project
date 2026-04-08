@@ -9,7 +9,7 @@ export type Track = {
     track_duration: number;
     track_position: number;
     track_release_date: Date;
-    track_preview: URL;
+    track_preview: string;
     track_artist: Artist;
     track_album: Album;
 }
