@@ -4,10 +4,12 @@
 
 import type { Genre } from "../types/genre.ts"
 import { useFetch } from "../hooks/useFetch.ts"
+import { useNavigate } from "react-router-dom"
 
 function Home () {
 
     const genre_state = useFetch<{ data: Genre[] }>("/genre")
+    const navigate = useNavigate()
 
     // narrow to figure out what exactly was returned
     if (genre_state.status === "loading") {
@@ -20,7 +22,8 @@ function Home () {
                 Success! 
                 <div>
                     {genre_state.data.data.map( data => 
-                        <div key = {data.id}>
+                        <div key = {data.id} onClick={() => navigate(`/genre/${data.id}`)}>
+                            {/* console.log(data) */}
                             {data.name}
                             <img src = {data.picture}></img>
                         </div>)}
