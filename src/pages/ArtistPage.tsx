@@ -20,9 +20,13 @@ function ArtistPage () {
         return <div>Loading...</div>
     } else if (artist_state.status === "error" || track_state.status === "error") {
         let error = ""
+        // print the error message for which has an error
         if (artist_state.status === "error") {
             error = artist_state.message
-        } else if (track_state.status === "error" ){
+        } else {
+            error = "Error in code"
+        }
+        if (track_state.status === "error" ){
             error = track_state.message
         } else {
             error = "Error in code"
