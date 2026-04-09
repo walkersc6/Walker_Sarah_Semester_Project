@@ -1,10 +1,12 @@
 // artist page
 // displays tracks and albums of artists
 import { useParams } from 'react-router-dom'
+import { useContext } from 'react'
 import { useFetch } from "../hooks/useFetch"
 import type { Track } from "../types/track"
 import type { Artist } from "../types/artist"
 // import type { Album } from "../types/album"
+import PlayerContext from '../context/PlayerContext'
 
 
 
@@ -16,6 +18,21 @@ function ArtistPage () {
     // const album_state = useFetch<{ data: Album[]}>(``)
     // const navigate = useNavigate()
 
+    // context for player bar
+    const context = useContext(PlayerContext)
+    
+    if (!context) {
+        return null;
+    }
+
+    const { dispatch } = context;
+
+    const handleClick = (data: Track) => {
+        dispatch({type: 'PLAY', track: data})
+    }
+
+
+    // determine what to display based on status
     if (artist_state.status === "loading" || track_state.status === "loading") {
         return <div>Loading...</div>
     } else if (artist_state.status === "error" || track_state.status === "error") {
@@ -52,6 +69,10 @@ function ArtistPage () {
                             <br />
                             {data.duration}
                             <br />
+                            {data.preview}
+                            <button onClick={() =>handleClick(data)}>
+                                |7
+                            </button>
                         </div>)}
                 </div>
 

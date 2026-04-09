@@ -10,7 +10,7 @@ function PlayerBar() {
 
     // check to see if context is null
     if (!context) {
-        return null
+        return null;
     }
 
     const { playerState, dispatch } = context;
