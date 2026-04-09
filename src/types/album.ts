@@ -1,7 +1,7 @@
 // album type
 
-// import type { Artist } from './artist.ts'
-// import type { Track } from './track.ts'
+import type { Artist } from './artist.ts'
+import type { Track } from './track.ts'
 
 export type Album = {
     id: number;
@@ -11,6 +11,6 @@ export type Album = {
     duration: number;
     release_date: Date;
     record_type: string;
-    // album_tracks: Track[];
-    // artist: Artist
+    album_tracks: Track[];
+    artist: Artist
 }

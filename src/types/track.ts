@@ -1,6 +1,6 @@
 // track type
-// import type { Artist } from './artist.ts'
-// import type { Album } from './album.ts'
+import type { Artist } from './artist.ts'
+import type { Album } from './album.ts'
 
 export type Track = {
     id: number;
@@ -10,6 +10,6 @@ export type Track = {
     position: number;
     release_date: Date;
     preview: string;
-    // artist: Artist;
-    // album: Album;
+    artist: Artist;
+    album: Album;
 }
