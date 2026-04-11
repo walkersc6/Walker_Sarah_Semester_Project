@@ -1,0 +1,53 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--cream);
+}
+
+/* ── Sticky header ── */
+.header {
+  background: linear-gradient(135deg, var(--cherry) 0%, var(--cherry-dark) 100%);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ── Brand wordmark ── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+}
+
+.brandName {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.brandSub {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* ── Page content area — padding-bottom leaves room for fixed PlayerBar ── */
+.main {
+  flex: 1;
+  padding: 28px 28px 120px;
+}

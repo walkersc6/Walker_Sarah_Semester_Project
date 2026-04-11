@@ -1,0 +1,60 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 2px solid var(--cream-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.row:hover {
+  border-color: var(--cherry);
+  box-shadow: 0 4px 14px rgba(192, 57, 43, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ── Circular play button ── */
+.playButton {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cherry);
+  color: var(--white);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+  padding: 0;
+  /* nudge the triangle icon so it looks visually centred */
+  padding-left: 2px;
+}
+
+.playButton:hover {
+  background: var(--cherry-dark);
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+}
+
+.title {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.duration {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-mid);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}

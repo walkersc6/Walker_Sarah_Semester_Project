@@ -1,31 +1,32 @@
-// search bar component
-
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import styles from './SearchBar.module.css'
 
 function SearchBar() {
-    const [query, setQuery] = useState<string>("");
+    const [query, setQuery] = useState<string>("")
     const navigate = useNavigate()
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(event.target.value);
+        setQuery(event.target.value)
     }
 
     const handleSearch = (event: React.FormEvent) => {
-        event.preventDefault();
+        event.preventDefault()
         navigate(`/search?q=${query}`)
     }
 
     return (
-        <div>
-            <form>
-                <input type="text" value={query} onChange={handleChange}>
-                </input>
-                <button type="submit" onClick={handleSearch}>Search</button>
-            </form>
-        </div>
+        <form className={styles.form} onSubmit={handleSearch}>
+            <input
+                type="text"
+                value={query}
+                onChange={handleChange}
+                placeholder="Search artists..."
+                className={styles.input}
+            />
+            <button type="submit" className={styles.button}>Search</button>
+        </form>
     )
-
 }
 
-export default SearchBar;
+export default SearchBar

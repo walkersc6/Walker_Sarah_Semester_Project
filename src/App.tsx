@@ -1,4 +1,5 @@
 import './App.css'
+import styles from './App.module.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/HomePage'
 import GenrePage from './pages/GenrePage'
@@ -11,7 +12,7 @@ import PlayerContext from './context/PlayerContext'
 import PlayerBar from './components/PlayerBar'
 
 function App() {
-  const [playerState, dispatch] = useReducer(playerReducer, 
+  const [playerState, dispatch] = useReducer(playerReducer,
     { current_track: null,
       is_playing: false,
       queue: []
@@ -19,17 +20,25 @@ function App() {
 
   return (
     <PlayerContext.Provider value={{ playerState, dispatch }}>
-      <div>
-        <SearchBar />
+      <div className={styles.app}>
+        <header className={styles.header}>
+          <div className={styles.brand}>
+            <span className={styles.brandName}>🎵 RetroGroove</span>
+            <span className={styles.brandSub}>Music Discovery</span>
+          </div>
+          <SearchBar />
+        </header>
+        <main className={styles.main}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/genre/:id" element={<GenrePage />} />
+            <Route path="/artist/:id" element={<ArtistPage />} />
+            <Route path="/search" element={<SearchPage />} />
+          </Routes>
+        </main>
+        <PlayerBar />
       </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/genre/:id" element={<GenrePage />} />
-        <Route path="/artist/:id" element={<ArtistPage />} />
-        <Route path="/search" element={<SearchPage />} />
-      </Routes>
-      <PlayerBar />
-  </PlayerContext.Provider>
+    </PlayerContext.Provider>
   )
 }
 

@@ -1,0 +1,72 @@
+.page {
+  padding: 8px 0;
+}
+
+.heading {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Candy-colored genre card grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  /* default — overridden by nth-child below */
+  background: var(--candy-1);
+}
+
+/* Cycle through 8 candy colours */
+.card:nth-child(8n + 1) { background: var(--candy-1); }
+.card:nth-child(8n + 2) { background: var(--candy-2); }
+.card:nth-child(8n + 3) { background: var(--candy-3); }
+.card:nth-child(8n + 4) { background: var(--candy-4); }
+.card:nth-child(8n + 5) { background: var(--candy-5); }
+.card:nth-child(8n + 6) { background: var(--candy-6); }
+.card:nth-child(8n + 7) { background: var(--candy-7); }
+.card:nth-child(8n + 8) { background: var(--candy-8); }
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.cardName {
+  padding: 12px 14px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+/* ── Loading / error states ── */
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 20px;
+  color: var(--text-mid);
+}

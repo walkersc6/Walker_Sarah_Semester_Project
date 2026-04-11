@@ -1,41 +1,37 @@
-// search page
-// shows results of user's search
-
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hooks/useFetch"
 import type { Artist } from "../types/artist"
+import styles from './SearchPage.module.css'
 
 function SearchPage() {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const query = searchParams.get('q')
-    const search_response = useFetch<{ data: Artist[] }>(query ? `/search/artist?q=${query}`: null)
-    
+    const search_response = useFetch<{ data: Artist[] }>(query ? `/search/artist?q=${query}` : null)
+
     if (search_response.status === "loading") {
-        return <div>Loading...</div>
+        return <div className={styles.loading}>Searching...</div>
     } else if (search_response.status === "error") {
-        return <div>Error: {search_response.message}</div>
+        return <div className={styles.error}>Error: {search_response.message}</div>
     } else if (search_response.status === "success") {
-        
         return (
-            <div>
-                Success! 
-                <div>
-                    {search_response.data.data.map( data => 
-                        <div key = {data.id} onClick={() => navigate(`/artist/${data.id}`)}>
-                            {/* console.log(data) */}
-                            {data.name}
-                            <img src = {data.picture}></img>
-                        </div>)}
+            <div className={styles.page}>
+                <h2 className={styles.heading}>
+                    Results for <span className={styles.highlight}>"{query}"</span>
+                </h2>
+                <div className={styles.grid}>
+                    {search_response.data.data.map(data =>
+                        <div key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
+                            <img src={data.picture} alt={data.name} className={styles.cardImage} />
+                            <div className={styles.cardName}>{data.name}</div>
+                        </div>
+                    )}
                 </div>
-                
             </div>
         )
     } else {
         return null
     }
-
 }
-
 
 export default SearchPage

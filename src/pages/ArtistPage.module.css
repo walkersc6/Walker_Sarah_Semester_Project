@@ -1,0 +1,97 @@
+.page {
+  padding: 8px 0;
+}
+
+/* ── Back button row ── */
+.nav {
+  margin-bottom: 24px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--cherry);
+  background: transparent;
+  color: var(--cherry);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.backButton:hover {
+  background: var(--cherry);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* ── Artist hero panel ── */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-mid) 100%);
+  border-radius: 24px;
+  margin-bottom: 36px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+.artistImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 26px rgba(232, 184, 75, 0.45);
+  flex-shrink: 0;
+}
+
+.artistInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.artistName {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.artistSub {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gold);
+  opacity: 0.75;
+  margin-top: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── Track list section ── */
+.tracksHeading {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Loading / error states ── */
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 20px;
+  color: var(--text-mid);
+}
