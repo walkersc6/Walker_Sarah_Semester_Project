@@ -3,70 +3,80 @@
 }
 
 .heading {
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 28px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
 }
 
 .highlight {
   color: var(--cherry);
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
 }
 
-/* ── Artist result card grid (same layout as GenrePage) ── */
+/* ── Artist result grid ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
+  gap: 16px;
 }
 
 .card {
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  background: var(--white);
+  background: #111827;
+  border: 2px solid #003a70;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 12px 16px;
-  border: 2px solid var(--cream-dark);
+  padding: 20px 12px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-  border-color: var(--teal);
+  transform: translateY(-5px);
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.22),
+    0 0 50px rgba(245, 158, 11, 0.08);
 }
 
 .cardImage {
-  width: 104px;
-  height: 104px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--cream-dark);
+  border: 2px solid rgba(245, 158, 11, 0.5);
   margin-bottom: 12px;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover .cardImage {
-  border-color: var(--teal);
+  border-color: var(--cherry);
+  box-shadow:
+    0 0 14px rgba(245, 158, 11, 0.55),
+    0 0 30px rgba(245, 158, 11, 0.2);
 }
 
 .cardName {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--white);
   text-align: center;
+  width: 100%;
+  padding: 8px 10px;
+  background: #111827;
+  border-radius: 0 0 10px 10px;
+  margin-top: auto;
 }
 
-/* ── Loading / error / empty states ── */
 .loading,
 .error,
 .empty {
   text-align: center;
   padding: 60px 20px;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-mid);
 }

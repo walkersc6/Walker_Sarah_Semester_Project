@@ -1,75 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 :root {
-  /* Jukebox color palette */
-  --cream: #FFF8E7;
-  --cream-dark: #EDE0C4;
-  --cherry: #C0392B;
-  --cherry-dark: #96281B;
-  --cherry-light: #E84040;
-  --gold: #E8B84B;
-  --gold-dark: #C99A2E;
-  --teal: #17A589;
-  --teal-dark: #148F77;
-  --charcoal: #1C1C28;
-  --charcoal-mid: #2A2A3E;
-  --text-dark: #2C1810;
-  --text-mid: #7A5C4A;
-  --chrome: #D4D4D4;
-  --white: #FFFFFF;
+  /* Accent — warm amber */
+  --cherry:       #f59e0b;
+  --cherry-dark:  #d97706;
+  --cherry-light: #fbbf24;
 
-  /* Candy card colors — used by nth-child cycling on genre/artist grids */
-  --candy-1: #E8537A;
-  --candy-2: #2AADCA;
-  --candy-3: #E8843A;
-  --candy-4: #CC8800;
-  --candy-5: #27AE90;
-  --candy-6: #8B5CF6;
-  --candy-7: #E84040;
-  --candy-8: #3B82F6;
+  /* Warm gold / amber */
+  --gold:      #c8a84b;
+  --gold-dark: #9a7930;
 
-  font-family: 'Fredoka', sans-serif;
+  /* Secondary — steel blue */
+  --teal:      #3a6ea8;
+  --teal-dark: #1e4a80;
+
+  /* Dark surfaces — deep navy-black */
+  --charcoal:     #07090f;
+  --charcoal-mid: #0d1526;
+
+  /* Text */
+  --text-dark: #e8ecf3;
+  --text-mid:  #7a8ea8;
+
+  /* Utilities */
+  --chrome: #9fb3c8;
+  --cream:  #eef2f7;
+  --white:  #ffffff;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--text-dark);
-  background: var(--cream);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html { min-height: 100%; }
+
 body {
   margin: 0;
   padding: 0;
-  background: var(--cream);
+  min-height: 100vh;
+  background-color: #dbeafe;
+  background-image:
+    radial-gradient(ellipse 110% 55% at 50% -5%,
+      rgba(0, 58, 112, 0.12) 0%, transparent 62%),
+    radial-gradient(ellipse 50% 35% at 95% 90%,
+      rgba(200, 16, 46, 0.04) 0%, transparent 55%);
 }
 
 #root {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
 
 h1, h2, h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   color: var(--text-dark);
   margin: 0;
 }
 
-p {
-  margin: 0;
-}
-
-img {
-  display: block;
-}
+p   { margin: 0; }
+img { display: block; }

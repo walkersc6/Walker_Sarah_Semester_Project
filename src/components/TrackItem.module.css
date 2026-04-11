@@ -2,57 +2,72 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 11px 16px;
-  border-radius: 16px;
-  background: var(--white);
-  border: 2px solid var(--cream-dark);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s ease;
 }
 
 .row:hover {
-  border-color: var(--cherry);
-  box-shadow: 0 4px 14px rgba(192, 57, 43, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 18px rgba(245, 158, 11, 0.2),
+    0 0 0 1px rgba(245, 158, 11, 0.2);
+  transform: translateX(3px);
 }
 
 /* ── Circular play button ── */
 .playButton {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
   background: var(--cherry);
-  color: var(--white);
-  font-size: 13px;
+  color: var(--charcoal);
+  font-size: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
   flex-shrink: 0;
   padding: 0;
-  /* nudge the triangle icon so it looks visually centred */
   padding-left: 2px;
+  box-shadow:
+    0 2px 8px rgba(245, 158, 11, 0.4),
+    0 0 12px rgba(245, 158, 11, 0.15);
 }
 
 .playButton:hover {
-  background: var(--cherry-dark);
+  background: var(--cherry-light);
+  box-shadow:
+    0 4px 16px rgba(245, 158, 11, 0.65),
+    0 0 28px rgba(245, 158, 11, 0.3);
   transform: scale(1.12);
-  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+}
+
+.playButton:active {
+  transform: scale(0.90);
+  box-shadow: none;
 }
 
 .title {
   flex: 1;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--white);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .duration {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--text-mid);
   flex-shrink: 0;

@@ -23,7 +23,7 @@ function App() {
       <div className={styles.app}>
         <header className={styles.header}>
           <div className={styles.brand}>
-            <span className={styles.brandName}>🎵 RetroGroove</span>
+            <span className={styles.brandName}>♫ Samplr</span>
             <span className={styles.brandSub}>Music Discovery</span>
           </div>
           <SearchBar />
