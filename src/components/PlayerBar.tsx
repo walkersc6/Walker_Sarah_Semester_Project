@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from 'react'
 import PlayerContext from '../context/PlayerContext'
-import styles from './PlayerBar.module.css'
+import styles from '../styles/PlayerBar.module.css'
 
 function PlayerBar() {
     const context = useContext(PlayerContext);

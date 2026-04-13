@@ -10,6 +10,7 @@ import { useReducer } from 'react'
 import playerReducer from './reducers/playerReducer'
 import PlayerContext from './context/PlayerContext'
 import PlayerBar from './components/PlayerBar'
+import AlbumPage from './pages/AlbumPage'
 
 function App() {
   const [playerState, dispatch] = useReducer(playerReducer,
@@ -33,6 +34,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/genre/:id" element={<GenrePage />} />
             <Route path="/artist/:id" element={<ArtistPage />} />
+            <Route path="/album/:id" element={<AlbumPage />} />
             <Route path="/search" element={<SearchPage />} />
           </Routes>
         </main>

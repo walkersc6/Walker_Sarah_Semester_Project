@@ -34,7 +34,7 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ── Artist hero panel ── */
+/* ── Album header panel ── */
 .hero {
   display: flex;
   align-items: center;
@@ -52,7 +52,6 @@
   position: relative;
 }
 
-/* Ambient navy glow behind the artist image */
 .hero::before {
   content: '';
   position: absolute;
@@ -64,10 +63,10 @@
   pointer-events: none;
 }
 
-.artistImage {
+.albumCover {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 10px;
   object-fit: cover;
   border: 2px solid rgba(245, 158, 11, 0.5);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
@@ -76,14 +75,14 @@
   z-index: 1;
 }
 
-.artistInfo {
+.albumInfo {
   flex: 1;
   min-width: 0;
   position: relative;
   z-index: 1;
 }
 
-.artistName {
+.albumTitle {
   font-size: 38px;
   font-weight: 800;
   color: var(--white);
@@ -91,7 +90,7 @@
   letter-spacing: -1px;
 }
 
-.artistSub {
+.albumSub {
   font-size: 11px;
   font-weight: 500;
   color: var(--gold);

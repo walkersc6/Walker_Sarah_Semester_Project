@@ -1,7 +1,7 @@
 import type { Genre } from "../types/genre.ts"
 import { useFetch } from "../hooks/useFetch.ts"
 import { useNavigate } from "react-router-dom"
-import styles from './HomePage.module.css'
+import styles from '../styles/HomePage.module.css'
 
 function Home() {
     const genre_state = useFetch<{ data: Genre[] }>("/genre")

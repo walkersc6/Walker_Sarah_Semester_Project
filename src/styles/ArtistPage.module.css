@@ -1,0 +1,235 @@
+.page {
+  padding: 8px 0;
+}
+
+.nav {
+  margin-bottom: 24px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--cherry);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.backButton:hover {
+  background: var(--cherry-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.backButton:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Artist hero panel ── */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px 36px;
+  background: #0d1a2e;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(200, 168, 75, 0.2);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(0, 58, 112, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ambient navy glow behind the artist image */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(0, 58, 112, 0.5) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.artistImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.artistInfo {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.artistName {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.artistSub {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+  margin-top: 8px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(200, 168, 75, 0.5);
+}
+
+.tracksHeading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Albums section ── */
+.albumsSection {
+  margin-top: 36px;
+}
+
+.albumsHeading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+/* Carousel wrapper with arrow buttons */
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.carouselArrowLeft,
+.carouselArrowRight {
+  flex-shrink: 0;
+  width: 40px;
+  border-radius: 8px;
+  border: none;
+  background: var(--cherry);
+  color: var(--white);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  padding: 0;
+}
+
+.carouselArrowLeft:hover,
+.carouselArrowRight:hover {
+  background: var(--cherry-light);
+}
+
+.carouselArrowLeft:active,
+.carouselArrowRight:active {
+  background: var(--cherry-dark);
+}
+
+.carouselArrowLeft:disabled,
+.carouselArrowRight:disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.25);
+  cursor: not-allowed;
+}
+
+/* Horizontally scrolling carousel */
+.carousel {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.albumCard {
+  flex-shrink: 0;
+  width: 150px;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111827;
+  border: 2px solid #003a70;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.albumCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.18);
+}
+
+.albumCard:active {
+  transform: translateY(-2px) scale(0.98);
+  transition-duration: 0.08s;
+}
+
+.albumCover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.albumName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  padding: 8px 10px;
+  background: #111827;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: var(--text-mid);
+}

@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hooks/useFetch"
 import type { Artist } from "../types/artist"
-import styles from './SearchPage.module.css'
+import styles from '../styles/SearchPage.module.css'
 
 function SearchPage() {
     const [searchParams] = useSearchParams()

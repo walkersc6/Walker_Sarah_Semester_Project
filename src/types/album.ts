@@ -11,6 +11,8 @@ export type Album = {
     duration: number;
     release_date: Date;
     record_type: string;
-    album_tracks: Track[];
+    tracks: {
+        data: Track[]
+    }
     artist: Artist
 }

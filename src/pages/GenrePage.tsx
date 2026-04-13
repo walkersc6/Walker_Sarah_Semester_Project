@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import type { Artist } from "../types/artist"
-import styles from './GenrePage.module.css'
+import styles from '../styles/GenrePage.module.css'
 
 function GenrePage() {
     const { id } = useParams()
@@ -22,7 +22,7 @@ function GenrePage() {
                 <div className={styles.grid}>
                     {genre_state.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
-                            <img src={data.picture} alt={data.name} className={styles.cardImage} />
+                            <img src={data.name === "Reggaeton" ? "../../public/reggae.jpg" : data.picture} alt={data.name} className={styles.cardImage} />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}
