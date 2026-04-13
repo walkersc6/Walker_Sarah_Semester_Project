@@ -1,3 +1,6 @@
+// artist page displays the artist name, top songs, and albums
+// Claude: generated carousel
+
 import { useParams, useNavigate } from 'react-router-dom'
 import { useCallback, useContext, useRef, useState, useEffect } from 'react'
 import { useFetch } from "../hooks/useFetch"
@@ -34,7 +37,7 @@ function ArtistPage() {
         updateScrollButtons()
         el.addEventListener('scroll', updateScrollButtons)
         return () => el.removeEventListener('scroll', updateScrollButtons)
-    }, [])
+    }, [album_response.status])
 
     const scrollLeft = () => carouselRef.current?.scrollBy({ left: -330, behavior: 'smooth' })
     const scrollRight = () => carouselRef.current?.scrollBy({ left: 330, behavior: 'smooth' })
@@ -42,6 +45,11 @@ function ArtistPage() {
     const handleClick = useCallback((data: Track) => {
         if (!dispatch) return
         dispatch({ type: 'PLAY', track: data })
+    }, [dispatch])
+
+    const handleAddToQueue = useCallback((data: Track) => {
+        if (!dispatch) return
+        dispatch({ type: 'ADD_TO_QUEUE', track: data})
     }, [dispatch])
 
     if (!context) return null;
@@ -79,7 +87,7 @@ function ArtistPage() {
                 <h3 className={styles.tracksHeading}>Top Tracks</h3>
                 <div className={styles.trackList}>
                     {track_state.data.data.map(data =>
-                        <TrackItem key={data.id} track={data} onPlay={handleClick} />
+                        <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
                     )}
                 </div>
 

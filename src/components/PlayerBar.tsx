@@ -27,6 +27,10 @@ function PlayerBar() {
         }
     }
 
+    const handleSkip = () => {
+        dispatch({ type: 'SKIP'})
+    }
+
     return (
         <div className={styles.bar}>
             {playerState?.current_track ? (
@@ -47,6 +51,7 @@ function PlayerBar() {
                         <button className={styles.playButton} onClick={handleClick}>
                             {playerState.is_playing ? '⏸' : '▶'}
                         </button>
+                        <button disabled={playerState.queue.length == 0} onClick={handleSkip}>skip</button>
                     </div>
                 </>
             ) : (

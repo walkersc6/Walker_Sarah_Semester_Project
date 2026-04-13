@@ -6,6 +6,8 @@ export type PlayerAction =
   | { type: 'PAUSE' }
   | { type: 'RESUME' }
   | { type: 'STOP' }
+  | { type: 'SKIP' }
+  | { type: 'ADD_TO_QUEUE'; track: Track }
 
 function playerReducer(state: NowPlaying, action: PlayerAction): NowPlaying {
     switch (action.type) {
@@ -21,6 +23,10 @@ function playerReducer(state: NowPlaying, action: PlayerAction): NowPlaying {
             return { ...state, is_playing: true }
         case 'STOP':
             return { current_track: null, is_playing: false, queue: [] }
+        case 'SKIP':
+            return { current_track: state.queue.length ? state.queue[0] : null, is_playing: true, queue: state.queue.slice(1)}
+        case 'ADD_TO_QUEUE':
+            return {...state, queue:[...state.queue, action.track]}
         default:
             return state
     }

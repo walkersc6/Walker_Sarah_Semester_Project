@@ -18,7 +18,7 @@ function Home() {
                 <div className={styles.grid}>
                     {genre_state.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/genre/${data.id}`)}>
-                            <img src={data.picture} alt={data.name} className={styles.cardImage} />
+                            <img src={data.name === "Reggaeton" ? "/reggae.jpg" : data.picture} alt={data.name} className={styles.cardImage} />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}

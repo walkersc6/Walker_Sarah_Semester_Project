@@ -7,6 +7,7 @@ import { useCallback, useContext } from 'react'
 import PlayerContext from '../context/PlayerContext'
 import styles from '../styles/AlbumPage.module.css'
 
+// TODO: Fix play feature and going to the next song
 
 function AlbumPage() {
     const { id } = useParams()
@@ -19,6 +20,11 @@ function AlbumPage() {
     const handleClick = useCallback((data: Track) => {
         if (!dispatch) return
         dispatch({ type: 'PLAY', track: data })
+    }, [dispatch])
+
+    const handleAddToQueue = useCallback((data: Track) => {
+        if (!dispatch) return
+        dispatch({ type: 'ADD_TO_QUEUE', track: data})
     }, [dispatch])
 
     if (album_response.status === "loading") {
@@ -46,7 +52,7 @@ function AlbumPage() {
                 {/* <h2 className={styles.tracksHeading}>Tracks</h2> */}
                 <div className={styles.trackList}>
                     {album.tracks.data.map(data =>
-                        <TrackItem key={data.id} track={data} onPlay={handleClick} />
+                        <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue} />
                     )}
                 </div>
             </div>

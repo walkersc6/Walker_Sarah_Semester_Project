@@ -22,7 +22,7 @@ function GenrePage() {
                 <div className={styles.grid}>
                     {genre_state.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
-                            <img src={data.name === "Reggaeton" ? "../../public/reggae.jpg" : data.picture} alt={data.name} className={styles.cardImage} />
+                            <img src={data.picture} alt={data.name} className={styles.cardImage} />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}
