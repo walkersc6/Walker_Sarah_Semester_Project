@@ -46,4 +46,4 @@ I used Claude as a mentor. I asked it to help me think of what needed to happen 
 
 # Future Additions
 
-Liddle's Law is that one is never done with programming. In the future, I would like to add a playlist feature
+Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust of my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on.
