@@ -33,7 +33,7 @@ function PlayerBar() {
     }
 
     return (
-        <div className={styles.bar}>
+        <div className={`${styles.bar} ${playerState?.current_track ? '' : styles.barHidden}`}>
             {playerState?.current_track ? (
                 <>
                     {playerState.current_track.album?.cover
