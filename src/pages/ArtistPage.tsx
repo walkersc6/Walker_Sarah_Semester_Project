@@ -24,20 +24,16 @@ function ArtistPage() {
     const [canScrollLeft, setCanScrollLeft] = useState(false)
     const [canScrollRight, setCanScrollRight] = useState(true)
 
-    const updateScrollButtons = () => {
+    const updateScrollButtons = useCallback(() => {
         const el = carouselRef.current
         if (!el) return
         setCanScrollLeft(el.scrollLeft > 0)
         setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1)
-    }
+    }, [])
 
     useEffect(() => {
-        const el = carouselRef.current
-        if (!el) return
-        updateScrollButtons()
-        el.addEventListener('scroll', updateScrollButtons)
-        return () => el.removeEventListener('scroll', updateScrollButtons)
-    }, [album_response.status])
+        if (album_response.status === 'success') updateScrollButtons()
+    }, [album_response.status, updateScrollButtons])
 
     const scrollLeft = () => carouselRef.current?.scrollBy({ left: -330, behavior: 'smooth' })
     const scrollRight = () => carouselRef.current?.scrollBy({ left: 330, behavior: 'smooth' })
@@ -97,7 +93,7 @@ function ArtistPage() {
                         {album_response.data.data.length >= 7 && (
                             <button className={styles.carouselArrowLeft} onClick={scrollLeft} disabled={!canScrollLeft}>&#8249;</button>
                         )}
-                        <div className={styles.carousel} ref={carouselRef}>
+                        <div className={styles.carousel} ref={carouselRef} onScroll={updateScrollButtons}>
                             {album_response.data.data.map(data =>
                                 <div key={data.id} className={styles.albumCard} onClick={() => navigate(`/album/${data.id}`)}>
                                     <img src={data.cover} alt={data.title} className={styles.albumCover} />

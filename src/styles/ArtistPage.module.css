@@ -164,8 +164,8 @@
 
 .carouselArrowLeft:disabled,
 .carouselArrowRight:disabled {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.25);
+  background: rgba(245, 158, 11, 0.2);
+  color: rgba(255, 255, 255, 0.35);
   cursor: not-allowed;
 }
 
@@ -191,20 +191,11 @@
   cursor: pointer;
   background: #111827;
   border: 2px solid #003a70;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .albumCard:hover {
-  transform: translateY(-5px);
   border-color: rgba(245, 158, 11, 0.65);
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(245, 158, 11, 0.18);
-}
-
-.albumCard:active {
-  transform: translateY(-2px) scale(0.98);
-  transition-duration: 0.08s;
 }
 
 .albumCover {

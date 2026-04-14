@@ -22,9 +22,17 @@ function playerReducer(state: NowPlaying, action: PlayerAction): NowPlaying {
         case 'RESUME':
             return { ...state, is_playing: true }
         case 'STOP':
-            return { current_track: null, is_playing: false, queue: [] }
+            return { 
+                current_track: null, 
+                is_playing: false, 
+                queue: [] 
+            }
         case 'SKIP':
-            return { current_track: state.queue.length ? state.queue[0] : null, is_playing: true, queue: state.queue.slice(1)}
+            return { 
+                current_track: state.queue.length ? state.queue[0] : null, 
+                is_playing: state.queue.length ? true: false, 
+                queue: state.queue.slice(1)
+            }
         case 'ADD_TO_QUEUE':
             return {...state, queue:[...state.queue, action.track]}
         default:

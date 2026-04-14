@@ -28,7 +28,7 @@ function PlayerBar() {
     }
 
     const handleSkip = () => {
-        setTimeout(() => { dispatch({ type: 'SKIP'}) }, 2000)
+        setTimeout(() => { dispatch({ type: 'SKIP'}) }, 1500)
         
     }
 
@@ -52,7 +52,7 @@ function PlayerBar() {
                         <button className={styles.playButton} onClick={handleClick}>
                             {playerState.is_playing ? '⏸' : '▶'}
                         </button>
-                        <button disabled={playerState.queue.length == 0} onClick={handleSkip}>skip</button>
+                        <button className={styles.skipButton} disabled={playerState.queue.length == 0} onClick={handleSkip}>⏭</button>
                     </div>
                 </>
             ) : (

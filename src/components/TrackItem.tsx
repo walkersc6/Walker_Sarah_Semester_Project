@@ -23,7 +23,7 @@ const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: Track
             <button className={styles.playButton} onClick={() => onPlay(track)}>▶</button>
             <span className={styles.title}>{track.title}</span>
             <span className={styles.duration}>{formatDuration(track.duration)}</span>
-            <button onClick={() => onAddToQueue(track)}>+=</button>
+            <button className={styles.queueButton} onClick={() => onAddToQueue(track)}>+</button>
         </div>
     )
 })
