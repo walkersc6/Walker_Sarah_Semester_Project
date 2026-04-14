@@ -7,6 +7,7 @@ import { useFetch } from "../hooks/useFetch"
 import type { Track } from "../types/track"
 import type { Artist } from "../types/artist"
 import type { Album } from "../types/album"
+import Spinner from '../components/Spinner'
 import PlayerContext from '../context/PlayerContext'
 import TrackItem from '../components/TrackItem'
 import styles from '../styles/ArtistPage.module.css'
@@ -51,7 +52,7 @@ function ArtistPage() {
     if (!context) return null;
 
     if (artist_state.status === "loading" || track_state.status === "loading" || album_response.status === "loading") {
-        return <div className={styles.loading}>Loading...</div>
+        return <Spinner />
     } else if (artist_state.status === "error" || track_state.status === "error" || album_response.status === "error") {
         const error = artist_state.status === "error"
             ? artist_state.message

@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hooks/useFetch"
 import type { Artist } from "../types/artist"
+import Spinner from '../components/Spinner'
 import styles from '../styles/SearchPage.module.css'
 
 function SearchPage() {
@@ -10,7 +11,7 @@ function SearchPage() {
     const search_response = useFetch<{ data: Artist[] }>(query ? `/search/artist?q=${query}` : null)
 
     if (search_response.status === "loading") {
-        return <div className={styles.loading}>Searching...</div>
+        return <Spinner />
     } else if (search_response.status === "error") {
         return <div className={styles.error}>Error: {search_response.message}</div>
     } else if (search_response.status === "success") {

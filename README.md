@@ -36,6 +36,14 @@ One flaw I encountered is that the genre/id/artist call returned the same list o
 
 In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages.
 
+# Animations
+
+I added animation for the player bar so it will slide in when a song is playing and will slide down when the queue is empty and the song has ended. There is also a harder to notice crossfade between album artworks with the song switches.
+
 # AI Usage
 
-I used Claude as a mentor. I asked it to help me think of what needed to happen and to not generate code for me. I did use Claude Code for the styling. In addition to creating many styling sheets, Claude Code created TrackItem.tsx. Anything else I wrote with guidance from Claude
+I used Claude as a mentor. I asked it to help me think of what needed to happen and to not generate code for me. I did use Claude Code for the styling. In addition to creating many styling sheets, Claude Code created TrackItem.tsx (without me asking) as well as add animations. Anything else I wrote with guidance from Claude.
+
+# Future Additions
+
+Liddle's Law is that one is never done with programming. In the future, I would like to add a playlist feature

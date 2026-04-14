@@ -1,6 +1,7 @@
 import type { Genre } from "../types/genre.ts"
 import { useFetch } from "../hooks/useFetch.ts"
 import { useNavigate } from "react-router-dom"
+import Spinner from '../components/Spinner'
 import styles from '../styles/HomePage.module.css'
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
     const navigate = useNavigate()
 
     if (genre_state.status === "loading") {
-        return <div className={styles.loading}>Loading genres...</div>
+        return <Spinner />
     } else if (genre_state.status === "error") {
         return <div className={styles.error}>Error: {genre_state.message}</div>
     } else if (genre_state.status === "success") {
@@ -18,7 +19,7 @@ function Home() {
                 <div className={styles.grid}>
                     {genre_state.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/genre/${data.id}`)}>
-                            <img src={data.name === "Reggaeton" ? "/reggae.jpg" : data.picture} alt={data.name} className={styles.cardImage} />
+                            <img src={data.name === "Reggaeton" ? "/reggae.jpg" : data.name === "All" ? "/pop.jpg": data.picture} alt={data.name} className={styles.cardImage} />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}

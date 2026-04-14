@@ -52,4 +52,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 28px 28px 120px;
+  display: flex;
+  flex-direction: column;
 }

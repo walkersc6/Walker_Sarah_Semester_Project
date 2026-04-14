@@ -38,11 +38,12 @@ function PlayerBar() {
                 <>
                     {playerState.current_track.album?.cover
                         ? <img
+                            key={playerState.current_track.id}
                             className={styles.albumArt}
                             src={playerState.current_track.album.cover}
                             alt="album art"
                           />
-                        : <div className={styles.albumArtPlaceholder}>♪</div>
+                        : <div key={playerState.current_track.id} className={styles.albumArtPlaceholder}>♪</div>
                     }
                     <div className={styles.trackInfo}>
                         <div className={styles.trackTitle}>{playerState.current_track.title}</div>

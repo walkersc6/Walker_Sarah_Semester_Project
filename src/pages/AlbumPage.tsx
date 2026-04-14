@@ -1,6 +1,7 @@
 import type { Album } from '../types/album'
 import type { Track } from "../types/track"
 import TrackItem from '../components/TrackItem'
+import Spinner from '../components/Spinner'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { useCallback, useContext } from 'react'
@@ -28,7 +29,7 @@ function AlbumPage() {
     }, [dispatch])
 
     if (album_response.status === "loading") {
-        return <div className={styles.loading}>Loading album...</div>
+        return <Spinner />
     } else if (album_response.status === "error") {
         return <div className={styles.error}>Error: {album_response.message}</div>
     } else if (album_response.status === "success") {

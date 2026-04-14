@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
+import Spinner from '../components/Spinner'
 import type { Artist } from "../types/artist"
 import styles from '../styles/GenrePage.module.css'
 
@@ -9,7 +10,7 @@ function GenrePage() {
     const navigate = useNavigate()
 
     if (genre_state.status === "loading") {
-        return <div className={styles.loading}>Loading artists...</div>
+        return <Spinner />
     } else if (genre_state.status === "error") {
         return <div className={styles.error}>Error: {genre_state.message}</div>
     } else if (genre_state.status === "success") {
