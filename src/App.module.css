@@ -16,9 +16,6 @@
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(200, 168, 75, 0.22);
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.55),
-    0 1px 0 rgba(200, 168, 75, 0.08);
 }
 
 /* ── Brand wordmark ── */
