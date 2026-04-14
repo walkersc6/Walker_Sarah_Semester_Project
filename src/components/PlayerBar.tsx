@@ -28,7 +28,8 @@ function PlayerBar() {
     }
 
     const handleSkip = () => {
-        dispatch({ type: 'SKIP'})
+        setTimeout(() => { dispatch({ type: 'SKIP'}) }, 2000)
+        
     }
 
     return (
@@ -60,7 +61,7 @@ function PlayerBar() {
                     Drop the needle — pick a track to play
                 </div>
             )}
-            <audio ref={audioRef} src={playerState?.current_track?.preview} />
+            <audio ref={audioRef} src={playerState?.current_track?.preview} onEnded={handleSkip} />
         </div>
     )
 }

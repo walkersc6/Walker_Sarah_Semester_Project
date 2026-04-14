@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Samplr is a react and typescript application that allows users to sample different songs based on genre, artist, and album. Users can add songs to a queue and pause songs that are currently playing. Disclaimer: only 30 seconds of the song will play. That is a limitation from the API.
 
-Currently, two official plugins are available:
+# Instructions to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+You can access the app with this link: https://walker-sarah-semester-project.vercel.app/
 
-## React Compiler
+To run this project locally:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install Node.js if you do not have it installed already
+2. Clone the repository
+3. In the terminal, navigate to the project root folder Walker_Sarah_Semester_Project
+4. npm install
+5. Install the Vercel CLI: npm install -g vercel
+6. Then you can run the application: vercel dev
 
-## Expanding the ESLint configuration
+# APIS and Data
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+I used the Deezer API. To avoid CORS problems, I created an api/deezer.ts file to act as proxy that my application could call, and then the proxy calls the Deezer server.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Calls and Returns:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- HomePage: /genre returns a data object that contains an array of genre objects
+- GenrePage: /genre/id/artists returns a data object that contains an array of artist objects
+- ArtistPage:
+- /artist/:id returns an Artist object
+- /artist/:id/top returns a data object that contains an array of top track objects
+- /artist/:id/albums returns a data objects that contains an array of album objects
+- AlbumPage: /album/:id returns an album object
+- SearchPage: /search/artist?q=:query returns a data object that contains an array of artist objects
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+One flaw I encountered is that the genre/id/artist call returned the same list of artists each time
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Additional Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# AI Usage
+
+I used Claude as a mentor. I asked it to help me think of what needed to happen and to not generate code for me. I did use Claude Code for the styling. In addition to creating many styling sheets, Claude Code created TrackItem.tsx. Anything else I wrote with guidance from Claude

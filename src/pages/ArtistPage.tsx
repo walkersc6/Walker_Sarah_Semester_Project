@@ -94,7 +94,9 @@ function ArtistPage() {
                 <div className={styles.albumsSection}>
                     <h3 className={styles.albumsHeading}>Albums</h3>
                     <div className={styles.carouselWrapper}>
-                        <button className={styles.carouselArrowLeft} onClick={scrollLeft} disabled={!canScrollLeft}>&#8249;</button>
+                        {album_response.data.data.length >= 7 && (
+                            <button className={styles.carouselArrowLeft} onClick={scrollLeft} disabled={!canScrollLeft}>&#8249;</button>
+                        )}
                         <div className={styles.carousel} ref={carouselRef}>
                             {album_response.data.data.map(data =>
                                 <div key={data.id} className={styles.albumCard} onClick={() => navigate(`/album/${data.id}`)}>
@@ -103,7 +105,9 @@ function ArtistPage() {
                                 </div>
                             )}
                         </div>
-                        <button className={styles.carouselArrowRight} onClick={scrollRight} disabled={!canScrollRight}>&#8250;</button>
+                        {album_response.data.data.length >= 7 && (
+                            <button className={styles.carouselArrowRight} onClick={scrollRight} disabled={!canScrollRight}>&#8250;</button>
+                        )}
                     </div>
                 </div>
             </div>
