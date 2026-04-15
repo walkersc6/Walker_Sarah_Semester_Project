@@ -82,7 +82,11 @@ function ArtistPage() {
                             ? "/backup_taylor.jpg"
                             : artist_response.data.name === "Megan Thee Stallion"
                                 ? "/stallion.jpg"
-                                : artist_response.data.picture}
+                                : artist_response.data.name === "Sabrina Carpenter"
+                                    ? "/sabrina.jpg"
+                                    : artist_response.data.name === "SZA"
+                                        ? "/sza.jpg"
+                                        : artist_response.data.picture}
                         alt={artist_response.data.name}
                     />
                     <div className={styles.artistInfo}>

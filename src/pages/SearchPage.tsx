@@ -17,6 +17,9 @@ function SearchPage() {
     } else if (search_response.status === "success") {
         return (
             <div className={styles.page}>
+                <nav className={styles.nav}>
+                <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
+                </nav>
                 <h2 className={styles.heading}>
                     Results for <span className={styles.highlight}>"{query}"</span>
                 </h2>
@@ -29,7 +32,11 @@ function SearchPage() {
                                     ? "/backup_taylor.jpg" 
                                     : data.name === "Megan Thee Stallion" 
                                         ? "/stallion.jpg" 
-                                        : data.picture} 
+                                        : data.name === "Sabrina Carpenter"
+                                            ? "/sabrina.jpg"
+                                            : data.name === "SZA"
+                                                ? "/sza.jpg"
+                                                : data.picture} 
                                 alt={data.name} 
                             />
                             <div className={styles.cardName}>{data.name}</div>

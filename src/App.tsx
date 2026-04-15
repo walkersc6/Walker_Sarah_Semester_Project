@@ -19,8 +19,6 @@ function App() {
       just_added: false
     })
 
-  const context = { playerState, dispatch }
-
   return (
     <PlayerContext.Provider value={{ playerState, dispatch }}>
       <div className={styles.app}>

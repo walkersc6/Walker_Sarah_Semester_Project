@@ -59,9 +59,9 @@
   bottom: 88px;
   left: 50%;
   transform: translateX(-50%);
-  background: #1a2335;
-  border: 1px solid rgba(245, 158, 11, 0.55);
-  color: var(--white);
+  background: var(--cherry);
+  border: none;
+  color: var(--charcoal);
   font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;

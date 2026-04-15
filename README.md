@@ -12,8 +12,9 @@ To run this project locally:
 2. Clone the repository
 3. In the terminal, navigate to the project root folder Walker_Sarah_Semester_Project
 4. npm install
-5. Install the Vercel CLI: npm install -g vercel
-6. Then you can run the application: vercel dev
+5. Create a vercel account
+6. Install the Vercel CLI: npm install -g vercel
+7. Then you can run the application: vercel dev
 
 # APIS and Data
 
@@ -30,7 +31,7 @@ Calls and Returns:
 - AlbumPage: /album/:id returns an album object
 - SearchPage: /search/artist?q=:query returns a data object that contains an array of artist objects
 
-One flaw I encountered is that the genre/id/artist call returned the same list of artists each time
+One limitation I encountered is that the genre/id/artist call returned the same list of artists each time
 
 # Additional Features
 
@@ -46,7 +47,7 @@ I used Claude as a mentor. I asked it to help me think of what needed to happen 
 
 # Future Additions
 
-Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust of my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on. I also need to add a queue side bar that shows playing next. I could potentially move the entire playerbar to the right side and show what's currently playing and what's in the queue. A user could delete songs in the queue or change the order of songs in the queue. I also want to include a previous button that would let you go back to the songs you previously listened to and let the user search by song. It's hard since the api limits what you can search for.
+Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust of my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on. I also need to add a queue side bar that shows playing next. I could potentially move the entire playerbar to the right side and show what's currently playing and what's in the queue. A user could delete songs in the queue or change the order of songs in the queue. I also want to include a previous button that would let you go back to the songs you previously listened to and let the user search by song. It's hard since the api limits what you can search for. The album cards on the artist page need some work. The image will not center horizontally and trying to get only the first two lines to appear was difficult.
 
 # Photo Disclaimer
 

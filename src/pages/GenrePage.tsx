@@ -32,7 +32,11 @@ function GenrePage() {
                                         ? "/backup_taylor.jpg" 
                                         : data.name === "Megan Thee Stallion" 
                                             ? "/stallion.jpg" 
-                                            : data.picture} 
+                                            : data.name === "Sabrina Carpenter"
+                                                ? "/sabrina.jpg"
+                                                : data.name === "SZA"
+                                                    ? "/sza.jpg"
+                                                    : data.picture} 
                                     alt={data.name}
                                 />
                                 <div className={styles.cardName}>{data.name}</div>
