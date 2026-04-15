@@ -76,8 +76,10 @@ function ArtistPage() {
                     <img
                         className={styles.artistImage}
                         src={artist_response.data.name === "Taylor Swift" 
-                            ? "/backup_taylor.jpg" 
-                            : artist_response.data.picture}
+                            ? "/backup_taylor.jpg"
+                            : artist_response.data.name === "Megan Thee Stallion"
+                                ? "/stallion.jpg"
+                                : artist_response.data.picture}
                         alt={artist_response.data.name}
                     />
                     <div className={styles.artistInfo}>

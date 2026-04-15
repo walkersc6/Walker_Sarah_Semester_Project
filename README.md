@@ -1,6 +1,6 @@
 # Project Description
 
-Samplr is a react and typescript application that allows users to sample different songs based on genre, artist, and album. Users can add songs to a queue and pause songs that are currently playing. Disclaimer: only 30 seconds of the song will play. That is a limitation from the API.
+Samplr is a react and typescript application that allows users to sample different songs based on genre, artist, and album. Users can add songs to a queue and pause songs that are currently playing. You cannot play or add a song to the queue if it contains explicit lyrics, doesn't have a preview, or is marked unreadable. Disclaimer: only 30 seconds of the song will play. That is a limitation from the API.
 
 # Instructions to run
 
@@ -50,4 +50,4 @@ Liddle's Law is that you are never done with programming. In the future, I would
 
 # Photo Disclaimer
 
-Some of the photos from the api aren't the most appropriate, so I tried changing some of them. However, the api refreshes its data every day and I can't guarantee that something wild won't pop up. I for sure have made Taylor Swift a safe artist to look at. I also cannot guarantee that the songs are entirely clean.
+Some of the photos from the api aren't the most appropriate, so I tried changing some of them. However, the api refreshes its data every day and I can't guarantee that something wild won't pop up. I for sure have made Taylor Swift a safe artist to look at.

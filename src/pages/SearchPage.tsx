@@ -28,7 +28,7 @@ function SearchPage() {
                                 src={data.name === "Taylor Swift" 
                                     ? "/backup_taylor.jpg" 
                                     : data.name === "Megan Thee Stallion" 
-                                        ? "stallion.jpg" 
+                                        ? "/stallion.jpg" 
                                         : data.picture} 
                                 alt={data.name} 
                             />
