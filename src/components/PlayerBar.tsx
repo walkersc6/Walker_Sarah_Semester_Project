@@ -58,9 +58,9 @@ function PlayerBar() {
                         <div className={styles.artistName}>{playerState.current_track.artist?.name}</div>
                     </div>
                     <div className={styles.controls}>
-                        <button 
-                            className={styles.playButton} 
-                            onClick={handleClick} 
+                        <button
+                            className={`${styles.playButton} ${playerState.is_playing ? styles.playButtonPause : ''}`}
+                            onClick={handleClick}
                             aria-label={playerState.is_playing ? 'Pause' : 'Play'}
                         >
                             {playerState.is_playing ? '⏸' : '▶'}

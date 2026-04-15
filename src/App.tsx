@@ -1,6 +1,6 @@
 import './App.css'
 import styles from './App.module.css'
-import { Routes, Route, /*useNavigate*/ } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/HomePage'
 import GenrePage from './pages/GenrePage'
 import ArtistPage from './pages/ArtistPage'
@@ -18,8 +18,6 @@ function App() {
       is_playing: false,
       queue: []
     })
-
-  // const navigate = useNavigate()
 
   return (
     <PlayerContext.Provider value={{ playerState, dispatch }}>
