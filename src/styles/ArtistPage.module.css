@@ -221,6 +221,53 @@
   border-radius: 0 0 11px 11px;
 }
 
+@media (max-width: 768px) {
+  .backButton {
+    font-size: 0;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .backButton::before {
+    content: '←';
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .artistImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .carouselArrowLeft,
+  .carouselArrowRight {
+    display: none;
+  }
+
+  .albumCard {
+    width: 160px;
+  }
+
+  .albumsHeading {
+    text-align: center;
+  }
+
+  .tracksHeading {
+    text-align: center;
+  }
+
+}
+
 .loading,
 .error {
   text-align: center;

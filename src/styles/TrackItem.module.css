@@ -97,6 +97,12 @@
   font-variant-numeric: tabular-nums;
 }
 
+@media (max-width: 768px) {
+  .duration {
+    display: none;
+  }
+}
+
 /* ── Add to queue button ── */
 .queueButton {
   width: 28px;

@@ -157,6 +157,20 @@
   box-shadow: 0 1px 6px rgba(245, 158, 11, 0.35);
 }
 
+@media (max-width: 768px) {
+  .bar {
+    padding: 10px 16px;
+  }
+
+  .trackTitle {
+    font-size: 14px;
+  }
+
+  .artistName {
+    font-size: 12px;
+  }
+}
+
 /* ── Skip button ── */
 .skipButton {
   width: 40px;

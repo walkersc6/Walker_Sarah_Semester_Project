@@ -5,14 +5,14 @@
 }
 
 .nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 16px;
   margin-bottom: 28px;
-  position: relative;
 }
 
 .backButton {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -44,17 +44,19 @@
   font-size: 26px;
   font-weight: 700;
   color: var(--white);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-column: 2;
+  text-align: center;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  pointer-events: none;
+  max-width: calc(100vw - 160px);
 }
 
 /* ── Artist card grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
   list-style: none;
   padding: 0;
@@ -116,6 +118,23 @@
   background: #111827;
   border-radius: 0 0 10px 10px;
   margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .backButton {
+    font-size: 0;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .backButton::before {
+    content: '←';
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
 }
 
 .loading,

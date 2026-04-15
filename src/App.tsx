@@ -1,6 +1,5 @@
-import './App.css'
 import styles from './App.module.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/HomePage'
 import GenrePage from './pages/GenrePage'
 import ArtistPage from './pages/ArtistPage'
@@ -16,20 +15,26 @@ function App() {
   const [playerState, dispatch] = useReducer(playerReducer,
     { current_track: null,
       is_playing: false,
-      queue: []
+      queue: [],
+      just_added: false
     })
+
+  const context = { playerState, dispatch }
 
   return (
     <PlayerContext.Provider value={{ playerState, dispatch }}>
       <div className={styles.app}>
         <header className={styles.header}>
           <div className={styles.brand}>
-            <a href = "/">
+            <Link to = "/">
               <span className={styles.brandName}>♫ Samplr</span>
-            </a>
+            </Link>
           </div>
           <SearchBar />
         </header>
+        {playerState.just_added && (
+            <div className={styles.toast}>Added to queue</div>
+        )}
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<Home />} />

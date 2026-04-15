@@ -24,8 +24,8 @@ function GenrePage() {
                 </nav>
                 <ul className={styles.grid}>
                     {genre_response.data.data.map(data =>
-                        <li>
-                            <button key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
+                        <li key={data.id}>
+                            <button className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
                                 <img 
                                     className={styles.cardImage}
                                     src={data.name === "Taylor Swift" 

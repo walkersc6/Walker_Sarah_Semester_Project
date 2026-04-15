@@ -49,7 +49,10 @@ function ArtistPage() {
 
     const handleAddToQueue = useCallback((data: Track) => {
         if (!dispatch) return
-        dispatch({ type: 'ADD_TO_QUEUE', track: data})
+        dispatch({ type: 'ADD_TO_QUEUE', track: data}) // add to queue and display toast
+        setTimeout(() => {
+            dispatch({type: 'CLEAR_NOTIFICATION'}) // clear away notification after 2 seconds
+        }, 2000)
     }, [dispatch])
 
     if (!context) return null;
@@ -91,8 +94,8 @@ function ArtistPage() {
                 <h3 className={styles.tracksHeading}>Top Tracks</h3>
                 <ul className={styles.trackList}>
                     {track_response.data.data.map(data =>
-                        <li>
-                            <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
+                        <li key={data.id}>
+                            <TrackItem track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
                         </li>
                     )}
                 </ul>

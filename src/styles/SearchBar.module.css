@@ -60,3 +60,21 @@
   transform: scale(0.96);
   box-shadow: 0 1px 4px rgba(245, 158, 11, 0.3);
 }
+
+@media (max-width: 640px) {
+  .input {
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+
+  .button {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+
+    /* .button::after {
+    content: '🔍';
+    font-size: 16px;
+  } */
+}

@@ -76,6 +76,12 @@
   letter-spacing: 0.1px;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .loading,
 .error {
   text-align: center;
