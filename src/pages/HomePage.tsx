@@ -5,21 +5,21 @@ import Spinner from '../components/Spinner'
 import styles from '../styles/HomePage.module.css'
 
 function Home() {
-    const genre_state = useFetch<{ data: Genre[] }>("/genre")
+    const genre_response = useFetch<{ data: Genre[] }>("/genre")
     const navigate = useNavigate()
 
-    if (genre_state.status === "loading") {
+    if (genre_response.status === "loading") {
         return <Spinner />
-    } else if (genre_state.status === "error") {
-        return <div className={styles.error}>Error: {genre_state.message}</div>
-    } else if (genre_state.status === "success") {
+    } else if (genre_response.status === "error") {
+        return <div className={styles.error}>Error: {genre_response.message}</div>
+    } else if (genre_response.status === "success") {
         return (
             <div className={styles.page}>
                 <h1 className={styles.heading}>Browse by Genre</h1>
                 <div className={styles.grid}>
-                    {genre_state.data.data.map(data =>
+                    {genre_response.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/genre/${data.id}`)}>
-                            <img src={data.name === "Reggaeton" ? "/reggae.jpg" : data.name === "All" ? "/pop.jpg": data.picture} alt={data.name} className={styles.cardImage} />
+                            <img src={data.name === "Reggaeton" ? "/reggae.jpg" : data.name === "All" ? "all.png": data.picture} alt={data.name} className={styles.cardImage} />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}

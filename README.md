@@ -24,9 +24,9 @@ Calls and Returns:
 - HomePage: /genre returns a data object that contains an array of genre objects
 - GenrePage: /genre/id/artists returns a data object that contains an array of artist objects
 - ArtistPage:
-- /artist/:id returns an Artist object
-- /artist/:id/top returns a data object that contains an array of top track objects
-- /artist/:id/albums returns a data objects that contains an array of album objects
+  - /artist/:id returns an Artist object
+  - /artist/:id/top returns a data object that contains an array of top track objects
+  - /artist/:id/albums returns a data objects that contains an array of album objects
 - AlbumPage: /album/:id returns an album object
 - SearchPage: /search/artist?q=:query returns a data object that contains an array of artist objects
 
@@ -34,7 +34,7 @@ One flaw I encountered is that the genre/id/artist call returned the same list o
 
 # Additional Features
 
-In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages.
+In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages.I also created a custom hook called useFetch. It handles API requests and returns a typed AsyncState<T> object so components can easily render loading, error, and success states.
 
 # Animations
 
@@ -47,3 +47,7 @@ I used Claude as a mentor. I asked it to help me think of what needed to happen 
 # Future Additions
 
 Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust of my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on.
+
+# Photo Disclaimer
+
+Some of the photos from the api aren't the most appropriate, so I tried changing some of them. However, the api refreshes it's data every day and I can't guarantee that something wild won't pop up. I for sure have made Taylor Swift a safe artist to look at.

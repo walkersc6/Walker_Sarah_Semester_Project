@@ -14,13 +14,16 @@ import styles from '../styles/ArtistPage.module.css'
 
 function ArtistPage() {
     const { id } = useParams()
-    const artist_state = useFetch<Artist>(`/artist/${id}`)
-    const track_state = useFetch<{ data: Track[] }>(`/artist/${id}/top`)
+    const artist_response = useFetch<Artist>(`/artist/${id}`)
+    const track_response = useFetch<{ data: Track[] }>(`/artist/${id}/top`)
     const album_response = useFetch<{data: Album[]}>(`/artist/${id}/albums`)
     const navigate = useNavigate()
 
     const context = useContext(PlayerContext)
     const dispatch = context?.dispatch
+
+    // Claude Code: 27-43
+    // puts albums into a carousel that is controlled by left and right buttons that are disabled when they reach the start or the end
     const carouselRef = useRef<HTMLDivElement>(null)
     const [canScrollLeft, setCanScrollLeft] = useState(false)
     const [canScrollRight, setCanScrollRight] = useState(true)
@@ -51,18 +54,18 @@ function ArtistPage() {
 
     if (!context) return null;
 
-    if (artist_state.status === "loading" || track_state.status === "loading" || album_response.status === "loading") {
+    if (artist_response.status === "loading" || track_response.status === "loading" || album_response.status === "loading") {
         return <Spinner />
-    } else if (artist_state.status === "error" || track_state.status === "error" || album_response.status === "error") {
-        const error = artist_state.status === "error"
-            ? artist_state.message
-            : track_state.status === "error"
-                ? track_state.message
+    } else if (artist_response.status === "error" || track_response.status === "error" || album_response.status === "error") {
+        const error = artist_response.status === "error"
+            ? artist_response.message
+            : track_response.status === "error"
+                ? track_response.message
                 : album_response.status === "error" 
                     ? album_response.message 
                     : "Unknown error"
         return <div className={styles.error}>Error: {error}</div>
-    } else if (artist_state.status === "success" && track_state.status === "success" && album_response.status === "success") {
+    } else if (artist_response.status === "success" && track_response.status === "success" && album_response.status === "success") {
         return (
             <div className={styles.page}>
                 <div className={styles.nav}>
@@ -71,19 +74,19 @@ function ArtistPage() {
 
                 <div className={styles.hero}>
                     <img
-                        src={artist_state.data.picture}
-                        alt={artist_state.data.name}
+                        src={artist_response.data.name === "Taylor Swift" ? "/backup_taylor.jpg" : artist_response.data.picture}
+                        alt={artist_response.data.name}
                         className={styles.artistImage}
                     />
                     <div className={styles.artistInfo}>
-                        <h2 className={styles.artistName}>{artist_state.data.name}</h2>
+                        <h2 className={styles.artistName}>{artist_response.data.name}</h2>
                         <div className={styles.artistSub}>Top Tracks</div>
                     </div>
                 </div>
 
                 <h3 className={styles.tracksHeading}>Top Tracks</h3>
                 <div className={styles.trackList}>
-                    {track_state.data.data.map(data =>
+                    {track_response.data.data.map(data =>
                         <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
                     )}
                 </div>

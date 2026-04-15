@@ -1,3 +1,5 @@
+// This page displays the album details and tracks returned from the album/id api
+
 import type { Album } from '../types/album'
 import type { Track } from "../types/track"
 import TrackItem from '../components/TrackItem'
@@ -7,8 +9,6 @@ import { useFetch } from '../hooks/useFetch'
 import { useCallback, useContext } from 'react'
 import PlayerContext from '../context/PlayerContext'
 import styles from '../styles/AlbumPage.module.css'
-
-// TODO: Fix play feature and going to the next song
 
 function AlbumPage() {
     const { id } = useParams()
