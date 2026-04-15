@@ -33,7 +33,7 @@ function PlayerBar() {
     }
 
     return (
-        <div className={`${styles.bar} ${playerState?.current_track ? '' : styles.barHidden}`}>
+        <footer className={`${styles.bar} ${playerState?.current_track ? '' : styles.barHidden}`}>
             {playerState?.current_track ? (
                 <>
                     {playerState.current_track.album?.cover
@@ -58,10 +58,21 @@ function PlayerBar() {
                         <div className={styles.artistName}>{playerState.current_track.artist?.name}</div>
                     </div>
                     <div className={styles.controls}>
-                        <button className={styles.playButton} onClick={handleClick}>
+                        <button 
+                            className={styles.playButton} 
+                            onClick={handleClick} 
+                            aria-label={playerState.is_playing ? 'Pause' : 'Play'}
+                        >
                             {playerState.is_playing ? '⏸' : '▶'}
                         </button>
-                        <button className={styles.skipButton} disabled={playerState.queue.length == 0} onClick={handleSkip}>⏭</button>
+                        <button 
+                            className={styles.skipButton} 
+                            disabled={playerState.queue.length == 0} 
+                            onClick={handleSkip}
+                            aria-label='Skip'
+                        >
+                            ⏭
+                        </button>
                     </div>
                 </>
             ) : (
@@ -71,7 +82,7 @@ function PlayerBar() {
                 </div>
             )}
             <audio ref={audioRef} src={playerState?.current_track?.preview} onEnded={handleSkip} />
-        </div>
+        </footer>
     )
 }
 

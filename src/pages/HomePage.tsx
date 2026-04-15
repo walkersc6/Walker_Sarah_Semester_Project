@@ -16,22 +16,24 @@ function Home() {
         return (
             <div className={styles.page}>
                 <h1 className={styles.heading}>Browse by Genre</h1>
-                <div className={styles.grid}>
+                <ul className={styles.grid}>
                     {genre_response.data.data.map(data =>
-                        <div key={data.id} className={styles.card} onClick={() => navigate(`/genre/${data.id}`)}>
-                            <img 
-                                className={styles.cardImage}
-                                src={data.name === "Reggaeton" 
-                                    ? "/reggae.jpg" 
-                                    : data.name === "All" 
-                                        ? "all.png"
-                                        : data.picture} 
-                                alt={data.name}
-                            />
-                            <div className={styles.cardName}>{data.name}</div>
-                        </div>
+                        <li>
+                            <button key={data.id} className={styles.card} onClick={() => navigate(`/genre/${data.id}`, { state: { name: 'Pop'} })}>
+                                <img 
+                                    className={styles.cardImage}
+                                    src={data.name === "Reggaeton" 
+                                        ? "/reggae.jpg" 
+                                        : data.name === "All" 
+                                            ? "all.png"
+                                            : data.picture} 
+                                    alt={data.name}
+                                />
+                                <div className={styles.cardName}>{data.name}</div>
+                            </button>
+                        </li>
                     )}
-                </div>
+                </ul>
             </div>
         )
     } else {

@@ -36,10 +36,10 @@ function AlbumPage() {
         const album = album_response.data
         return (
             <div className={styles.page}>
-                <div className={styles.nav}>
+                <nav className={styles.nav}>
                     <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
-                </div>
-                <div className={styles.hero}>
+                </nav>
+                <section className={styles.hero} aria-label={album.title}>
                     {album.cover && (
                         <img 
                             className={styles.albumCover} 
@@ -64,12 +64,14 @@ function AlbumPage() {
                             </div>
                         )}
                     </div>
-                </div>
-                <div className={styles.trackList}>
+                </section>
+                <ol className={styles.trackList}>
                     {album.tracks.data.map(data =>
-                        <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue} />
+                        <li>
+                            <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue} />
+                        </li>
                     )}
-                </div>
+                </ol>
             </div>
         )
     }

@@ -68,11 +68,11 @@ function ArtistPage() {
     } else if (artist_response.status === "success" && track_response.status === "success" && album_response.status === "success") {
         return (
             <div className={styles.page}>
-                <div className={styles.nav}>
+                <nav className={styles.nav}>
                     <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
-                </div>
+                </nav>
 
-                <div className={styles.hero}>
+                <section className={styles.hero} aria-label={artist_response.data.name}>
                     <img
                         className={styles.artistImage}
                         src={artist_response.data.name === "Taylor Swift" 
@@ -86,24 +86,26 @@ function ArtistPage() {
                         <h2 className={styles.artistName}>{artist_response.data.name}</h2>
                         {/* <div className={styles.artistSub}>Top Tracks</div> */}
                     </div>
-                </div>
+                </section>
 
                 <h3 className={styles.tracksHeading}>Top Tracks</h3>
-                <div className={styles.trackList}>
+                <ul className={styles.trackList}>
                     {track_response.data.data.map(data =>
-                        <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
+                        <li>
+                            <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue}/>
+                        </li>
                     )}
-                </div>
+                </ul>
 
                 <div className={styles.albumsSection}>
                     <h3 className={styles.albumsHeading}>Albums</h3>
                     <div className={styles.carouselWrapper}>
                         {album_response.data.data.length >= 7 && (
-                            <button className={styles.carouselArrowLeft} onClick={scrollLeft} disabled={!canScrollLeft}>&#8249;</button>
+                            <button className={styles.carouselArrowLeft} onClick={scrollLeft} disabled={!canScrollLeft} aria-label="Scroll left">&#8249;</button>
                         )}
                         <div className={styles.carousel} ref={carouselRef} onScroll={updateScrollButtons}>
                             {album_response.data.data.map(data =>
-                                <div key={data.id} className={styles.albumCard} onClick={() => navigate(`/album/${data.id}`)}>
+                                <button key={data.id} className={styles.albumCard} onClick={() => navigate(`/album/${data.id}`)}>
                                     <img 
                                         className={styles.albumCover} 
                                         src={data.title === "The Life of a Showgirl"
@@ -118,11 +120,11 @@ function ArtistPage() {
                                         alt={data.title} 
                                     />
                                     <div className={styles.albumName}>{data.title}</div>
-                                </div>
+                                </button>
                             )}
                         </div>
                         {album_response.data.data.length >= 7 && (
-                            <button className={styles.carouselArrowRight} onClick={scrollRight} disabled={!canScrollRight}>&#8250;</button>
+                            <button className={styles.carouselArrowRight} onClick={scrollRight} disabled={!canScrollRight} aria-label="Scroll right">&#8250;</button>
                         )}
                     </div>
                 </div>

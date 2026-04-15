@@ -26,8 +26,10 @@ const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: Track
                 className={styles.playButton} 
                 disabled={!track.readable || !track.preview || track.explicit_lyrics}
                 onClick={() => onPlay(track)}
+                aria-label={`Play ${track.title}`}
             >
                 ▶
+                {/* TODO: mark as pause if the song is playing */}
             </button>
             <span className={styles.title}>{track.title}</span>
             <span className={styles.duration}>{formatDuration(track.duration)}</span>
@@ -35,6 +37,7 @@ const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: Track
                 className={styles.queueButton} 
                 disabled={!track.readable || !track.preview || track.explicit_lyrics}
                 onClick={() => onAddToQueue(track)}
+                aria-label={`Add ${track.title} to queue`}
             >
                 <ListPlus size={16}/>
             </button>

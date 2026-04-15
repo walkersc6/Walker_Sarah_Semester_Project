@@ -16,16 +16,25 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grid li {
+  display: flex;
 }
 
 .card {
   border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
   background: #111827;
   border: 2px solid #003a70;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  padding: 2px 2px 0;
   transition:
     transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.22s ease;
@@ -51,6 +60,7 @@
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  border-radius: 10px 10px 0 0;
 }
 
 .cardName {

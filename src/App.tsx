@@ -1,6 +1,6 @@
 import './App.css'
 import styles from './App.module.css'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, /*useNavigate*/ } from 'react-router-dom'
 import Home from './pages/HomePage'
 import GenrePage from './pages/GenrePage'
 import ArtistPage from './pages/ArtistPage'
@@ -19,15 +19,16 @@ function App() {
       queue: []
     })
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   return (
     <PlayerContext.Provider value={{ playerState, dispatch }}>
       <div className={styles.app}>
         <header className={styles.header}>
-          <div className={styles.brand} onClick={() => navigate('/')}>
-            <span className={styles.brandName}>♫ Samplr</span>
-            <span className={styles.brandSub}>Music Discovery</span>
+          <div className={styles.brand}>
+            <a href = "/">
+              <span className={styles.brandName}>♫ Samplr</span>
+            </a>
           </div>
           <SearchBar />
         </header>

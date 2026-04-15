@@ -26,6 +26,11 @@
   user-select: none;
 }
 
+.brand a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .brandName {
   font-family: 'Inter', sans-serif;
   font-size: 22px;

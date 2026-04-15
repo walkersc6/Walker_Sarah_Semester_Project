@@ -108,6 +108,9 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* ── Albums section ── */
@@ -183,10 +186,11 @@
   width: 150px;
   scroll-snap-align: start;
   border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
   background: #111827;
-  border: 2px solid #003a70;
+  border: 1px solid #003a70;
+  font-family: 'Inter', sans-serif;
+  padding: 1px 1px 0;
   transition: border-color 0.2s ease;
 }
 
@@ -199,6 +203,7 @@
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  border-radius: 11px 11px 0 0;
 }
 
 .albumName {
@@ -211,6 +216,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-radius: 0 0 11px 11px;
 }
 
 .loading,
