@@ -4,6 +4,7 @@
 import { memo } from 'react'
 import type { Track } from '../types/track'
 import styles from '../styles/TrackItem.module.css'
+import { ListPlus } from 'lucide-react'
 
 interface TrackItemProps {
     track: Track
@@ -23,7 +24,9 @@ const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: Track
             <button className={styles.playButton} onClick={() => onPlay(track)}>▶</button>
             <span className={styles.title}>{track.title}</span>
             <span className={styles.duration}>{formatDuration(track.duration)}</span>
-            <button className={styles.queueButton} onClick={() => onAddToQueue(track)}>+</button>
+            <button className={styles.queueButton} onClick={() => onAddToQueue(track)}>
+                <ListPlus size={16}/>
+            </button>
         </div>
     )
 })
