@@ -21,10 +21,21 @@ function formatDuration(seconds: number): string {
 const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: TrackItemProps) {
     return (
         <div className={styles.row}>
-            <button className={styles.playButton} onClick={() => onPlay(track)}>▶</button>
+            {/* disable play and add to queue buttons if the song is not readable, is missing a preview, or contains explicit lyrics */}
+            <button 
+                className={styles.playButton} 
+                disabled={!track.readable || !track.preview || track.explicit_lyrics}
+                onClick={() => onPlay(track)}
+            >
+                ▶
+            </button>
             <span className={styles.title}>{track.title}</span>
             <span className={styles.duration}>{formatDuration(track.duration)}</span>
-            <button className={styles.queueButton} onClick={() => onAddToQueue(track)}>
+            <button 
+                className={styles.queueButton} 
+                disabled={!track.readable || !track.preview || track.explicit_lyrics}
+                onClick={() => onAddToQueue(track)}
+            >
                 <ListPlus size={16}/>
             </button>
         </div>

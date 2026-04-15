@@ -7,9 +7,11 @@ export type Album = {
     id: number;
     title: string;
     cover: string;
-    genre_id: number;
+    genres: {
+        data: { name: string }[]
+    }
     duration: number;
-    release_date: Date;
+    release_date: string;
     record_type: string;
     tracks: {
         data: Track[]

@@ -8,7 +8,7 @@ export type Track = {
     title: string;
     duration: number;
     position: number;
-    release_date: Date;
+    explicit_lyrics: boolean;
     preview: string;
     artist: Artist;
     album: Album;

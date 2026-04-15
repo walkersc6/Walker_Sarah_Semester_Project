@@ -95,9 +95,9 @@
   font-weight: 500;
   color: var(--gold);
   margin-top: 8px;
+  margin-bottom: 8px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(200, 168, 75, 0.5);
 }
 
 .tracksHeading {

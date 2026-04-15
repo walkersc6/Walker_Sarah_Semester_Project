@@ -56,6 +56,18 @@
   box-shadow: none;
 }
 
+.playButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
+}
+
+.playButton:disabled:hover {
+  background: var(--cherry);
+  box-shadow: none;
+  transform: none;
+}
+
 .title {
   flex: 1;
   font-size: 15px;
@@ -102,4 +114,16 @@
 
 .queueButton:active {
   transform: scale(0.90);
+}
+
+.queueButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.queueButton:disabled:hover {
+  background: transparent;
+  border-color: rgba(245, 158, 11, 0.2);
+  transform: none;
 }

@@ -56,13 +56,15 @@ function AlbumPage() {
                         />
                     )}
                     <div className={styles.albumInfo}>
+                        <div className={styles.albumSub}>{album.record_type}</div>
                         <h1 className={styles.albumTitle}>{album.title}</h1>
                         {album.artist && (
-                            <div className={styles.albumSub}>{album.artist.name}</div>
+                            <div className={styles.albumSub}>
+                                {album.artist.name} | {new Date(album.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} | {album.genres.data[0].name}
+                            </div>
                         )}
                     </div>
                 </div>
-                {/* <h2 className={styles.tracksHeading}>Tracks</h2> */}
                 <div className={styles.trackList}>
                     {album.tracks.data.map(data =>
                         <TrackItem key={data.id} track={data} onPlay={handleClick} onAddToQueue={handleAddToQueue} />
