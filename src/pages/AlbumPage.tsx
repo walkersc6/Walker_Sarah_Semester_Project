@@ -41,7 +41,19 @@ function AlbumPage() {
                 </div>
                 <div className={styles.hero}>
                     {album.cover && (
-                        <img className={styles.albumCover} src={album.cover} alt={album.title} />
+                        <img 
+                            className={styles.albumCover} 
+                            src={album.title === "The Life of a Showgirl"
+                                ? "/green_showgirl.png"
+                                : album.title === "The Life of a Showgirl + Acoustic Collection"
+                                    ? "/pink_showgirl.png"
+                                    : album.title === "The Life of a Showgirl (Track by Track Version)"
+                                        ? "/orange_showgirl.png"
+                                        : album.title === "THE TORTURED POETS DEPARTMENT"
+                                            ? "/ttpd.png"
+                                            : album.cover}  
+                            alt={album.title} 
+                        />
                     )}
                     <div className={styles.albumInfo}>
                         <h1 className={styles.albumTitle}>{album.title}</h1>

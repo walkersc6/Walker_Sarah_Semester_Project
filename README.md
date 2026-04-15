@@ -50,4 +50,4 @@ Liddle's Law is that you are never done with programming. In the future, I would
 
 # Photo Disclaimer
 
-Some of the photos from the api aren't the most appropriate, so I tried changing some of them. However, the api refreshes it's data every day and I can't guarantee that something wild won't pop up. I for sure have made Taylor Swift a safe artist to look at.
+Some of the photos from the api aren't the most appropriate, so I tried changing some of them. However, the api refreshes it's data every day and I can't guarantee that something wild won't pop up. I for sure have made Taylor Swift a safe artist to look at. I also cannot guarantee that the songs are entirely clean.

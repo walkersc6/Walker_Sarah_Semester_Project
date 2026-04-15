@@ -40,7 +40,15 @@ function PlayerBar() {
                         ? <img
                             key={playerState.current_track.id}
                             className={styles.albumArt}
-                            src={playerState.current_track.album.cover}
+                            src={playerState.current_track.album.title === "The Life of a Showgirl"
+                                            ? "/green_showgirl.png"
+                                            : playerState.current_track.album.title === "The Life of a Showgirl + Acoustic Collection"
+                                                ? "/pink_showgirl.png"
+                                                : playerState.current_track.album.title === "The Life of a Showgirl (Track by Track Version)"
+                                                    ? "/orange_showgirl.png"
+                                                    : playerState.current_track.album.title === "THE TORTURED POETS DEPARTMENT"
+                                                        ? "/ttpd.png"
+                                                        : playerState.current_track.album.cover} 
                             alt="album art"
                           />
                         : <div key={playerState.current_track.id} className={styles.albumArtPlaceholder}>♪</div>

@@ -23,7 +23,15 @@ function SearchPage() {
                 <div className={styles.grid}>
                     {search_response.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>
-                            <img src={data.picture} alt={data.name} className={styles.cardImage} />
+                            <img 
+                                className={styles.cardImage}
+                                src={data.name === "Taylor Swift" 
+                                    ? "/backup_taylor.jpg" 
+                                    : data.name === "Megan Thee Stallion" 
+                                        ? "stallion.jpg" 
+                                        : data.picture} 
+                                alt={data.name} 
+                            />
                             <div className={styles.cardName}>{data.name}</div>
                         </div>
                     )}

@@ -74,13 +74,15 @@ function ArtistPage() {
 
                 <div className={styles.hero}>
                     <img
-                        src={artist_response.data.name === "Taylor Swift" ? "/backup_taylor.jpg" : artist_response.data.picture}
-                        alt={artist_response.data.name}
                         className={styles.artistImage}
+                        src={artist_response.data.name === "Taylor Swift" 
+                            ? "/backup_taylor.jpg" 
+                            : artist_response.data.picture}
+                        alt={artist_response.data.name}
                     />
                     <div className={styles.artistInfo}>
                         <h2 className={styles.artistName}>{artist_response.data.name}</h2>
-                        <div className={styles.artistSub}>Top Tracks</div>
+                        {/* <div className={styles.artistSub}>Top Tracks</div> */}
                     </div>
                 </div>
 
@@ -100,7 +102,19 @@ function ArtistPage() {
                         <div className={styles.carousel} ref={carouselRef} onScroll={updateScrollButtons}>
                             {album_response.data.data.map(data =>
                                 <div key={data.id} className={styles.albumCard} onClick={() => navigate(`/album/${data.id}`)}>
-                                    <img src={data.cover} alt={data.title} className={styles.albumCover} />
+                                    <img 
+                                        className={styles.albumCover} 
+                                        src={data.title === "The Life of a Showgirl"
+                                            ? "/green_showgirl.png"
+                                            : data.title === "The Life of a Showgirl + Acoustic Collection"
+                                                ? "/pink_showgirl.png"
+                                                : data.title === "The Life of a Showgirl (Track by Track Version)"
+                                                    ? "/orange_showgirl.png"
+                                                    : data.title === "THE TORTURED POETS DEPARTMENT"
+                                                        ? "/ttpd.png"
+                                                        : data.cover} 
+                                        alt={data.title} 
+                                    />
                                     <div className={styles.albumName}>{data.title}</div>
                                 </div>
                             )}
