@@ -23,6 +23,8 @@ export function useFetch<T>(path: string | null) {
         if (err instanceof Error) {
                   if (err.name === 'AbortError') return
         setState({ status: 'error', message: err.message })
+        } else {
+          setState({ status: 'error', message: 'Unknown error' })
         }
       })
 
