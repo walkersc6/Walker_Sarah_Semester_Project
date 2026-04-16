@@ -13,7 +13,7 @@ import TrackItem from '../components/TrackItem'
 import styles from '../styles/ArtistPage.module.css'
 
 function ArtistPage() {
-    const { id } = useParams()
+    const { id } = useParams<{ id: string }>()
     const artist_response = useFetch<Artist>(`/artist/${id}`)
     const track_response = useFetch<{ data: Track[] }>(`/artist/${id}/top`)
     const album_response = useFetch<{data: Album[]}>(`/artist/${id}/albums`)
@@ -25,8 +25,8 @@ function ArtistPage() {
     // Claude Code: 27-43
     // puts albums into a carousel that is controlled by left and right buttons that are disabled when they reach the start or the end
     const carouselRef = useRef<HTMLDivElement>(null)
-    const [canScrollLeft, setCanScrollLeft] = useState(false)
-    const [canScrollRight, setCanScrollRight] = useState(true)
+    const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false)
+    const [canScrollRight, setCanScrollRight] = useState<boolean>(true)
 
     const updateScrollButtons = useCallback(() => {
         const el = carouselRef.current

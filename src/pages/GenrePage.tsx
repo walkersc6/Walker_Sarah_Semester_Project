@@ -5,11 +5,11 @@ import type { Artist } from "../types/artist"
 import styles from '../styles/GenrePage.module.css'
 
 function GenrePage() {
-    const { id } = useParams()
+    const { id } = useParams<{ id: string }>()
     const genre_response = useFetch<{ data: Artist[] }>(`/genre/${id}/artists`)
     const navigate = useNavigate()
     const location = useLocation()
-    const genre_name = location.state?.name // name is passed by route state from home page
+    const genre_name: string | undefined = location.state?.name // name is passed by route state from home page
 
     if (genre_response.status === "loading") {
         return <Spinner />

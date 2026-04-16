@@ -19,9 +19,11 @@ export function useFetch<T>(path: string | null) {
     })
       .then(res => res.json())
       .then(data => setState({ status: 'success', data }))
-      .catch(err => {
-        if (err.name === 'AbortError') return
+      .catch((err: unknown) => {
+        if (err instanceof Error) {
+                  if (err.name === 'AbortError') return
         setState({ status: 'error', message: err.message })
+        }
       })
 
     return () => controller.abort()
