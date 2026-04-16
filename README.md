@@ -27,15 +27,15 @@ Calls and Returns:
 - ArtistPage:
   - /artist/:id returns an Artist object
   - /artist/:id/top returns a data object that contains an array of top track objects
-  - /artist/:id/albums returns a data objects that contains an array of album objects
+  - /artist/:id/albums returns a data object that contains an array of album objects
 - AlbumPage: /album/:id returns an album object
 - SearchPage: /search/artist?q=:query returns a data object that contains an array of artist objects
 
-One limitation I encountered is that the genre/id/artist call returned the same list of artists each time
+One limitation I encountered is that the genre/id/artist call returned the same list of artists each time regardless of the genre selected.
 
 # Additional Features
 
-In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages.I also created a custom hook called useFetch. It handles API requests and returns a typed AsyncState<T> object so components can easily render loading, error, and success states.
+In addition to users being able to browse different artists and albums, I added a player bar and a queue. A user can click the play button of any track and listen to a sample of it (if it is available). They can add songs to a queue and skip through them. The player bar and queue stay consistent throughout the pages. I also created a custom hook called useFetch. It handles API requests and returns a typed AsyncState<T> object so components can easily render loading, error, and success states.
 
 # Animations
 
@@ -47,7 +47,7 @@ I used Claude as a mentor. I asked it to help me think of what needed to happen 
 
 # Future Additions
 
-Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust of my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on. I also need to add a queue side bar that shows playing next. I could potentially move the entire playerbar to the right side and show what's currently playing and what's in the queue. A user could delete songs in the queue or change the order of songs in the queue. I also want to include a previous button that would let you go back to the songs you previously listened to and let the user search by song. It's hard since the api limits what you can search for. The album cards on the artist page need some work. The image will not center horizontally and trying to get only the first two lines to appear was difficult.
+Liddle's Law is that you are never done with programming. In the future, I would like to add a playlist feature where a user can create playlists, add songs, and play that playlist. Having a shuffle feature on albums, artists, or playlists would be cool. I'd like to dust off my machine learning skills and figure out how to create an algorithm that suggest songs based on songs in a playlist or albums similar to the album the user clicks on. I also need to add a queue sidebar that shows playing next. I could potentially move the entire playerbar to the right side and show what's currently playing and what's in the queue. A user could delete songs in the queue or change the order of songs in the queue. I also want to include a previous button that would let you go back to the songs you previously listened to and let the user search by song. It's hard since the api limits what you can search for. The album cards on the artist page need some work. The image will not center horizontally and trying to get only the first two lines to appear was difficult.
 
 # Photo Disclaimer
 
