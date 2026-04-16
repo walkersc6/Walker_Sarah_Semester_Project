@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from 'react'
 import PlayerContext from '../context/PlayerContext'
 import styles from '../styles/PlayerBar.module.css'
+import { Play, Pause, SkipForward } from 'lucide-react'
 
 function PlayerBar() {
     const context = useContext(PlayerContext);
@@ -64,7 +65,7 @@ function PlayerBar() {
                             onClick={handleClick}
                             aria-label={playerState.is_playing ? 'Pause' : 'Play'}
                         >
-                            {playerState.is_playing ? '⏸' : '▶'}
+                            {playerState.is_playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
                         </button>
                         <button 
                             className={styles.skipButton} 
@@ -72,7 +73,7 @@ function PlayerBar() {
                             onClick={handleSkip}
                             aria-label='Skip'
                         >
-                            ⏭
+                            <SkipForward size={18} fill="currentColor" />
                         </button>
                     </div>
                 </>

@@ -4,7 +4,7 @@
 import { memo, useContext } from 'react'
 import type { Track } from '../types/track'
 import styles from '../styles/TrackItem.module.css'
-import { ListPlus } from 'lucide-react'
+import { ListPlus, Play, Pause } from 'lucide-react'
 import PlayerContext from '../context/PlayerContext.tsx'
 
 interface TrackItemProps {
@@ -35,7 +35,7 @@ const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: Track
                 onClick={() => onPlay(track)}
                 aria-label={`Play ${track.title}`}
             >
-                { isThisTrackPlaying ? "⏸" : "▶" }
+                { isThisTrackPlaying ? <Pause size={14} fill="currentColor" /> : <Play size={14} fill="currentColor" /> }
             </button>
             <span className={styles.title}>{track.title}</span>
             <span className={styles.duration}>{formatDuration(track.duration)}</span>
