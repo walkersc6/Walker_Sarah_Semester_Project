@@ -19,6 +19,7 @@ function formatDuration(seconds: number): string {
     return `${m}:${s.toString().padStart(2, '0')}`
 }
 
+// prevent re-rendering tracks that haven't changes when the player state updates
 const TrackItem = memo(function TrackItem({ track, onPlay, onAddToQueue }: TrackItemProps) {
     // determine if button should be play or pause
     const context = useContext(PlayerContext);

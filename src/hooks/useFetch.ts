@@ -11,6 +11,7 @@ export function useFetch<T>(path: string | null) {
 
     setState({ status: 'loading' })
 
+    // AbortController cancels in-flight request when the component unmounts or path changes
     const controller = new AbortController()
 
     fetch(`/api/deezer?path=${encodeURIComponent(path)}`, {

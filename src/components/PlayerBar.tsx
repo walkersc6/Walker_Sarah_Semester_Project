@@ -4,6 +4,7 @@ import styles from '../styles/PlayerBar.module.css'
 
 function PlayerBar() {
     const context = useContext(PlayerContext);
+    // useRef keeps the audio element stabler across renders withotu triggering re-renders
     const audioRef = useRef<HTMLAudioElement>(null);
     const playerState = context?.playerState
 
@@ -28,8 +29,8 @@ function PlayerBar() {
     }
 
     const handleSkip = () => {
+        // delay skip slightly to allow fade-out animation to complete
         setTimeout(() => { dispatch({ type: 'SKIP'}) }, 1500)
-        
     }
 
     return (

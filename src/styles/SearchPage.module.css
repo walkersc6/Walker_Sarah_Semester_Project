@@ -5,10 +5,28 @@
 }
 
 .nav {
-  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.navRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.resultsLabel {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  grid-column: 2;
+  text-align: center;
 }
 
 .backButton {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -57,12 +75,27 @@
   font-size: 26px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 24px;
+  margin: 0;
+  text-align: center;
 }
 
 .highlight {
   color: var(--cherry);
   text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+.queryWrapper {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: baseline;
+}
+
+.query {
+  min-width: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ── Artist result grid ── */

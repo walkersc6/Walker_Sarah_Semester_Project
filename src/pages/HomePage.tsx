@@ -19,7 +19,11 @@ function Home() {
                 <ul className={styles.grid}>
                     {genre_response.data.data.map(data =>
                         <li key={data.id}>
-                            <button className={styles.card} onClick={() => navigate(`/genre/${data.id}`, { state: { name: 'Pop'} })}>
+                            <button 
+                                className={styles.card} 
+                                onClick={() => navigate(`/genre/${data.id}`, 
+                                            { state: { name: data.name} })} // genre name passed via route state to GenrePage
+                            > 
                                 <img 
                                     className={styles.cardImage}
                                     src={data.name === "Reggaeton" 

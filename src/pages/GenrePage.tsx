@@ -9,7 +9,7 @@ function GenrePage() {
     const genre_response = useFetch<{ data: Artist[] }>(`/genre/${id}/artists`)
     const navigate = useNavigate()
     const location = useLocation()
-    const genre_name = location.state?.name
+    const genre_name = location.state?.name // name is passed by route state from home page
 
     if (genre_response.status === "loading") {
         return <Spinner />

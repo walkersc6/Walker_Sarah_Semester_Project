@@ -7,7 +7,7 @@ export type PlayerAction =
     | { type: 'RESUME' }
     | { type: 'SKIP' }
     | { type: 'ADD_TO_QUEUE'; track: Track }
-    | { type: 'CLEAR_NOTIFICATION'} 
+    | { type: 'CLEAR_NOTIFICATION'} // removes toast notification about song added to queue
 
 function playerReducer(state: NowPlaying, action: PlayerAction): NowPlaying {
     switch (action.type) {

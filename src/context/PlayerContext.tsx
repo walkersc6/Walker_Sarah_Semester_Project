@@ -7,6 +7,7 @@ type PlayerContextType = {
     dispatch: (action: PlayerAction) => void
 }
 
+// null default requires consumers to check for context before using it
 const PlayerContext = createContext<PlayerContextType | null>(null)
 
 export default PlayerContext;

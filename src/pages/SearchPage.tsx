@@ -8,6 +8,7 @@ function SearchPage() {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const query = searchParams.get('q')
+    // null path prevents useFetch from firing if there is no query
     const search_response = useFetch<{ data: Artist[] }>(query ? `/search/artist?q=${query}` : null)
 
     if (search_response.status === "loading") {
@@ -18,11 +19,16 @@ function SearchPage() {
         return (
             <div className={styles.page}>
                 <nav className={styles.nav}>
-                <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
+                    <div className={styles.navRow}>
+                        <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
+                        <span className={styles.resultsLabel}>Results for</span>
+                    </div>
+                    <h2 className={styles.heading}>
+                        <span className={`${styles.highlight} ${styles.queryWrapper}`}>
+                            <span className={styles.query}>"{query}</span>"
+                        </span>
+                    </h2>
                 </nav>
-                <h2 className={styles.heading}>
-                    Results for <span className={styles.highlight}>"{query}"</span>
-                </h2>
                 <div className={styles.grid}>
                     {search_response.data.data.map(data =>
                         <div key={data.id} className={styles.card} onClick={() => navigate(`/artist/${data.id}`)}>

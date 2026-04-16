@@ -130,6 +130,7 @@ function ArtistPage() {
                                 </button>
                             )}
                         </div>
+                        {/* only show carousel arrows if there are enough albums to scroll */}
                         {album_response.data.data.length >= 7 && (
                             <button className={styles.carouselArrowRight} onClick={scrollRight} disabled={!canScrollRight} aria-label="Scroll right">&#8250;</button>
                         )}

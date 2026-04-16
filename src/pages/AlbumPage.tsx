@@ -40,7 +40,8 @@ function AlbumPage() {
         return (
             <div className={styles.page}>
                 <nav className={styles.nav}>
-                    <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button>
+                    {/* go back just one page to prevent a full page reload and preserve audio state */}
+                    <button className={styles.backButton} onClick={() => navigate(-1)}>← Back</button> 
                 </nav>
                 <section className={styles.hero} aria-label={album.title}>
                     {album.cover && (
